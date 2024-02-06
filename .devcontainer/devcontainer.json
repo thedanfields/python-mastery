@@ -1,0 +1,72 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
+{
+	"name": "remote pythonSurveyNotification",
+	"build": {
+		// Sets the run context to one level up instead of the .devcontainer folder.
+		"context": "..",
+		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
+		"dockerfile": "../Dockerfile",
+		"args": {
+			"env": "local"
+		}
+	},
+	"features": {
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	//"forwardPorts": [80, 443],
+
+	// Uncomment the next line to run commands after the container is created.
+	//"postCreateCommand": "sleep 15",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+		  "settings": {
+			"files.exclude": {
+			  "**/__pycache__": true,
+			  "**/.pytest_cache": true
+			},
+			"files.autoSave": "onFocusChange",
+			"git.autorefresh": true,
+			"extensions.ignoreRecommendations": true,        
+			"python.analysis.diagnosticMode": "workspace",
+			"python.analysis.typeCheckingMode": "strict",
+			"python.analysis.ignore":["Solutions/*", "Data/*"],
+			"python.analysis.logLevel": "Trace",
+			"python.analysis.disableSemanticOnNoPython": false,
+			"python.analysis.userFileIndexingLimit": -1,
+			"python.formatting.provider": "none",
+			"python.languageServer": "Pylance",
+			"python.linting.enabled": true,
+			"python.linting.lintOnSave": true,
+			"python.defaultInterpreterPath": "/usr/local/bin/python",
+			"python.testing.autoTestDiscoverOnSaveEnabled": true,
+			"python.testing.pytestEnabled": true,
+			"python.testing.unittestEnabled": false,
+			"[python]": {
+			  "editor.defaultFormatter": "charliermarsh.ruff",
+			  "editor.formatOnSave": true,
+			  "editor.codeActionsOnSave": {
+				"source.fixAll": true,
+				"source.organizeImports": true
+			  },
+			  "editor.formatOnPaste": true,
+			  "editor.formatOnSaveMode": "file"
+			}
+		  },      
+		  "extensions": [
+			"ms-python.vscode-pylance",
+			"ms-python.python",
+			"ms-python.mypy-type-checker",
+			"charliermarsh.ruff",
+			"eamodio.gitlens",
+			"ms-azuretools.vscode-docker"
+		  ]
+		}
+	  }
+
+	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "devcontainer"
+}
