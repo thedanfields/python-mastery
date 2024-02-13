@@ -3,6 +3,8 @@ ARG env
 
 RUN echo $env
 
+ENV PYTHONPATH "${PYTHONPATH}:/usr/src/app"
+
 WORKDIR /usr/src/app
 
 COPY requirements.txt .
