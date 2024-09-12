@@ -1,0 +1,2 @@
+>>> tracemalloc.get_traced_memory()
+(102976, 132591)
